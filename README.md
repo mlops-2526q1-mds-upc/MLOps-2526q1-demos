@@ -50,11 +50,7 @@ This project follows the structure proposed by Lanubile et al. [1].
         <tr>
             <td>Quality assurance for ML: static analysis</td>
             <td>Pynbilint (notebook + repository QA), Pylint, flake8</td>
-            <td>
-                <a href="docs/pytest-demo.md">Pytest demo</a>,
-                <a href="docs/great-expectations-demo.md">Great Expectations demo</a>,
-                <a href="https://docs.deepchecks.com/stable/vision/auto_tutorials/quickstarts/plot_simple_classification_tutorial.html">Deepchecks demo</a>
-            </td>
+            <td></td>
         </tr>
         <tr>
             <td>Quality assurance for ML: testing data and model</td>
