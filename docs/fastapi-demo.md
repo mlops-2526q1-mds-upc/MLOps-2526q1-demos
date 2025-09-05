@@ -118,8 +118,11 @@ For example:
 ```
 
 ## Test the API
-We can now test the API using [Pytest](https://docs.pytest.org/en/6.2.x/). To do this, we create a new file called [`test_api.py`](../src/tests/test_api.py) in the `tests/` directory.
+We can now test the API using [Pytest](https://docs.pytest.org/en/6.2.x/). To do this, we create a new file called [`test_api.py`](../tests/test_api.py) in the `tests/` directory.
 
-Here we will create a fixture called `client` that will be used to test the API. We will also create a second fixture called `payload` that will be used to test the `/predict/tabular/{type}` endpoint. Since our endpoints expect the payload in JSON format we must build the `payload` return value according to the same format. If you have correctly implemented your API, the `/docs` endpoint will show you an example of the payload expected by each of your endpoints.
+Here we will create a fixture called `client` that will be used to test the API. We will also create a second fixture called `long_review` that will be used to test the `/predict` endpoint. Since our endpoints expect the payload in JSON format we must build the `long_review` return value according to the same format. If you have correctly implemented your API, the `/docs` endpoint will show you an example of the payload expected by each of your endpoints.
 
-Finally, we will create a test for each endpoint. To do this, we will use the `client` fixture to make requests to the API and check the response.
+Finally, we will create three tests:
+- `test_root` will test the `/` endpoint;
+- `test_single_review` will test the `/predict` endpoint with a single review;
+- `test_review_too_long` will test the `/predict` endpoint with a review that is too long.

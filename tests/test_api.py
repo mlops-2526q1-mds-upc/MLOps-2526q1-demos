@@ -10,19 +10,22 @@ from src.config import TESTS_DIR
 
 @pytest.fixture(scope="module", autouse=True)
 def client():
-    # Use the TestClient with a `with` statement to trigger the startup and shutdown events.
+    """Fixture that returns a TestClient for the FastAPI app."""
+    # Use the TestClient with a `with` statement to trigger the lifespan events.
     with TestClient(app) as client:
         yield client
 
 
 @pytest.fixture(autouse=True)
 def long_review():
+    """Fixture that returns a payload with long review."""
     with open(TESTS_DIR / "aux_files" / "long-review.txt", "r") as file:
         review = file.read()
-    return review
+    return {"reviews": [{"review": review}]}
 
 
 def test_root(client):
+    """Test the root endpoint."""
     response = client.get("/")
     json = response.json()
     assert response.status_code == HTTPStatus.OK
@@ -30,10 +33,8 @@ def test_root(client):
 
 
 def test_review_too_long(client, long_review):
-    response = client.post(
-        "/prediction",
-        json={"reviews": [{"review": long_review}]},
-    )
+    """Test that the API returns a 422 error when the review is too long."""
+    response = client.post("/prediction", json=long_review)
     assert response.status_code == HTTPStatus.UNPROCESSABLE_ENTITY
     json = response.json()
     assert (
@@ -42,6 +43,7 @@ def test_review_too_long(client, long_review):
 
 
 def test_single_review(client):
+    """Test the /predict endpoint with a single review."""
     response = client.post(
         "/prediction",
         json={"reviews": [{"review": "This is a great movie!"}]},
