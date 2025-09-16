@@ -71,8 +71,8 @@ We will use [uv](https://docs.astral.sh/uv/) as the dependency manager for our p
     ```
     This will add the `black`, `pylint`, and `pytest` packages as development dependencies to the project.
 
-    >[!TIP]
-    >It is recommended to check the uv documentation to get familiar with its features and usage.
+> [!TIP]
+> It is recommended to check the uv documentation to get familiar with its features and usage.
 
 9. Create a new repository on [GitHub](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-new-repository):
 
@@ -80,8 +80,8 @@ We will use [uv](https://docs.astral.sh/uv/) as the dependency manager for our p
 
     If it is the first time using GitHub, follow [this](https://docs.github.com/en/authentication/connecting-to-github-with-ssh) guidelines to connect to GitHub with SSH with your local Git installation.
 
-    >[!Important]
-    For those using Windows 10/11 it is highly recommended to use the Windows Subsystem for Linux (WSL). For instructions on how to set it up see [here](https://learn.microsoft.com/en-us/windows/wsl/install).
+> [!Important]
+> For those using Windows 10/11 it is highly recommended to use the Windows Subsystem for Linux (WSL). For instructions on how to set it up see [here](https://learn.microsoft.com/en-us/windows/wsl/install).
 
 10. Initialize a new Git repository in the project directory:
     ```bash
@@ -101,8 +101,8 @@ We will use [uv](https://docs.astral.sh/uv/) as the dependency manager for our p
     ```
     Replace `ssh-url-to-remote-repository` with the URL of the remote repository you created in step 9.
 
-    >[!WARNING]
-    Make sure you use the SSH URL and not the HTTPS URL. It should look something like: `git@github.com:taed2-2526q1-gced-upc/your-repository-name.git`
+> [!WARNING]
+> Make sure you use the SSH URL and not the HTTPS URL. It should look something like: `git@github.com:taed2-2526q1-gced-upc/your-repository-name.git`
 
 14. Push the changes to the remote repository:
     ```bash
